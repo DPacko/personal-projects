@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   background: hsl(200, 81%, 50%);
-  font-family: "helvetica neue";
+  font-family: "Comic Sans MS";
   font-size: 20px;
   font-weight: 200;
 }
@@ -14,41 +14,6 @@ body {
 *:after {
   box-sizing: inherit;
 }
-/* 
-.site-wrap {
-  display: flex;
-  justify-content: center;
-  margin: 70px auto;
-  background: hsl(200, 81%, 50%);
-  padding: 20px;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
-  transform: scale(0.98);
-  transition: transform 0.5s;
-  width: 900px;
-} */
-
-/* .listen {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-
-.shop {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-} */
-
-/* .listen {
-  display: flex;
-  justify-content: left;
-} */
-
-/* .song {
-  margin: 50px;
-  padding: 5px;
-} */
 
 /* getting flex box to work */
 /* menu-container */
@@ -69,8 +34,8 @@ body {
 
 .song {
   border: 1px;
-  width: 300px;
-  height: 500px;
+  width: 400px;
+  height: auto;
 }
 
 /* end flex container for listen div */
@@ -81,8 +46,8 @@ body {
 
 header {
   text-align: center;
-  height: 50vh;
-  background: url(cat.jpg) no-repeat center center;
+  height: 100vh;
+  background: url(backup.jpg) no-repeat center center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -95,17 +60,60 @@ h1 {
   text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* attempt to make a responsive nav */
+/* nav bar is dropdown on mobile screen */
+.topnav .icon {
+  display: none;
+  text-align: right;
+  /* margin-left: 20px; */
+}
+
+@media screen and (max-width: 660px) {
+  .topnav .item-nav {
+    display: none;
+  }
+  .topnav .icon {
+    /* float: right; */
+    display: block;
+  }
+}
+
+@media screen and (max-width: 6660px) {
+  .topnav.item-nav.responsive {
+    position: relative;
+  }
+  .topnav.logo.responsive {
+    /* float: left; */
+    max-width: 326px;
+  }
+  .topnav.logo a.responsive {
+    /* float: left; */
+    max-width: 40px;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
 nav {
   top: 0;
   width: 100%;
   transition: all 0.5s;
   position: relative;
   z-index: 1;
+  background: grey;
 }
 
 .fixed-nav nav {
   position: fixed;
-  /* box-shadow: 0 5px rgba(0, 0, 0, 0.1); */
 }
 
 nav ul {
@@ -119,7 +127,6 @@ nav li {
   background: grey;
   flex: 1;
   text-align: center;
-  display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s;
@@ -132,12 +139,20 @@ li.logo {
   overflow: hidden;
   background: grey;
   transition: all 0.5s;
-  font-weight: 600;
-  font-size: 30px;
+  font-size: 20px;
+  padding-top: 11px;
+}
+
+.paw {
+  display: inline-block;
+  background: url(pawprint.png);
+  width: 64px;
+  height: 65px;
 }
 
 .fixed-nav li.logo {
-  max-width: 500px;
+  max-width: 326px;
+  float: left;
 }
 
 li.logo a {
@@ -168,7 +183,95 @@ nav a {
 }
 
 /* bring up music video */
-
 iframe {
   transition: all 0.5s;
+}
+
+/* move album div over */
+.album-container .shop-container {
+  display: flex;
+  justify-content: center;
+}
+
+.albums-menu {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.albums {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  height: 100px;
+}
+
+/* shop click-n-drag to scroll */
+.shop-menu {
+  min-height: 100vh;
+  display: border-box;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.shopping-items {
+  height: 500px;
+  padding: 100px;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform;
+  position: relative;
+  font-size: 0;
+  perspective: 500px;
+}
+
+.shopping-items.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
+}
+
+.item {
+  width: 200px;
+  height: calc(100% - 40px);
+  margin: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  font-weight: 100;
+}
+
+.item:nth-child(1) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(2) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(3) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(4) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(5) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(6) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(7) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(8) {
+  background: url(t-shirt-cat.jpg);
+}
+.item:nth-child(9) {
+  background: url(t-shirt-cat.jpg);
 }
