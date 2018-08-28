@@ -20,7 +20,7 @@ function myFunction() {
 
 // below scrolls navbar down
 
-const nav = document.querySelector("#main");
+const nav = document.querySelector(".flex-nav");
 const topOfNav = nav.offsetTop;
 
 function fixNav() {
